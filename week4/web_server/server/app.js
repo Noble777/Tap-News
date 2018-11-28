@@ -1,6 +1,9 @@
 var express = require('express');
 var path = require('path');
 
+var express = require('express');
+var path = require('path');
+
 var index = require('./routes/index');
 var news = require('./routes/news');
 
