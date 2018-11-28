@@ -1,6 +1,6 @@
 """ Backend service """
 import logging
-# import operations
+import operations
 
 from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
 
@@ -19,16 +19,16 @@ def add(num1, num2):
     return num1 + num2
 
 
-# def get_one_news():
-#     """ Test method to get one news """
-#     LOGGER.debug("getOneNews is called")
-#     return operations.getOneNews()
+def get_one_news():
+    """ Test method to get one news """
+    LOGGER.debug("getOneNews is called")
+    return operations.getOneNews()
 
 
 # Threading RPC Server
 RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
 RPC_SERVER.register_function(add, 'add')
-# RPC_SERVER.register_function(get_one_news, 'getOneNews')
+RPC_SERVER.register_function(get_one_news, 'getOneNews')
 
 LOGGER.info("Starting RPC server on %s:%d", SERVER_HOST, SERVER_PORT)
 
