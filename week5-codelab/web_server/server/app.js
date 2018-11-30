@@ -1,3 +1,5 @@
+var config = require('./config/config.json');
+require('./models/main.js').connect(config.mongoDbUri);
 var auth = require('./routes/auth');
 var authChecker = require('./auth/auth_checker');
 var bodyParser = require('body-parser');
@@ -13,9 +15,9 @@ var app = express();
 
 app.use(bodyParser.json());
 
-var config = require('./config/config.json');
+// var config = require('./config/config.json');
 
-require('./models/main.js').connect(config.mongoDbUri);
+// require('./models/main.js').connect(config.mongoDbUri);
 
 // load passport strategies.
 app.use(passport.initialize());

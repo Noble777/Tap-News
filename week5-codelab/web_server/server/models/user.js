@@ -18,7 +18,7 @@ UserSchema.pre('save', function saveHook(next) {
 
   if (!user.isModified('password')) return next();
 
-  return bcrpt.genSalt((saltError, salt) => {
+  return bcrypt.genSalt((saltError, salt) => {
     if (saltError) { return next(saltError); }
 
     return bcrypt.hash(user.password, salt, (hashError, hash) => {
@@ -28,7 +28,7 @@ UserSchema.pre('save', function saveHook(next) {
 
         return next();
     });
-  }
+  });
 });
 
 module.exports = mongoose.model('User', UserSchema);
