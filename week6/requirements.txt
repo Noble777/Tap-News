@@ -2,3 +2,4 @@ jsonrpclin-pelix
 pymongo
 pika
 requests
+redis
