@@ -1,3 +1,4 @@
 jsonrpclin-pelix
 pymongo
 pika
+requests
