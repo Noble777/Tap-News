@@ -35,14 +35,12 @@ def handle_message(msg):
     task = msg
     text = None
 
-    # we only support CNN now 
-    if task['source'] == 'cnn':
-        text = cnn_news_scraper.extract_news(task['url']) 
-    else:
-        return
+    article = Article(msg['url'])
+    article.download()
+    article.parse()
 
-    task['text'] = article.text.encode('utf-8')
-    dedupe_news_queue_client.sendMessage(task)
+    msg['text'] = article.text
+    dedupe_news_queue_client.sendMessage(msg)
 
 
 def run():
