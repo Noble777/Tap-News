@@ -18,7 +18,7 @@ REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 
 SCRAPE_NEWS_TASK_QUEUE_URL = 'amqp://suwtqtns:07i7ffur7LXu9NEAsn-erWjt44gl-NPa@barnacle.rmq.cloudamqp.com/suwtqtns'
-SCRAPE_NEWS_TASK_QUEUE_NAME = 'tap-news-SCRAPE_NEWS_TASK_QUEUE'
+SCRAPE_NEWS_TASK_QUEUE_NAME = 'tap-news-scrape-news-task-queue'
 
 NEWS_SOURCES = [
     'bbc-news',
