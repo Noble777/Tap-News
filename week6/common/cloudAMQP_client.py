@@ -27,7 +27,7 @@ class CloudAMQPClient:
 
 
     def getMessage(self):
-        method_frame, header_frame, body = self.channel.basic_get('test')
+        method_frame, header_frame, body = self.channel.basic_get(self.queue_name)
         if method_frame:
             logger.debug("[x] Received message from %s:%s", self.queue_name, body)
             self.channel.basic_ack(method_frame.delivery_tag)
