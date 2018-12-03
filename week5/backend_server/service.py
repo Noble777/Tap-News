@@ -1,8 +1,14 @@
 """ Backend service """
 import logging
-import operations
-
 from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
+import operations
+# import json 
+# import os 
+# import sys
+
+# from bson.json_util import dumps
+# sys.path.append(os.path.join(os.path.dirname(__file__), 'utils')) 
+# import mongodb_client
 
 SERVER_HOST = 'localhost'
 SERVER_PORT = 4040
@@ -24,6 +30,12 @@ def get_one_news():
     LOGGER.debug("getOneNews is called")
     return operations.getOneNews()
 
+# def getOneNews():
+# 	LOGGER.debug("getOneNews is called")
+# 	res = mongodb_client.get_db()['news'].find_one() # dumps(res): convert bson to string
+# 	# then convert string to json
+# 	return json.loads(dumps(res))
+
 
 # Threading RPC Server
 RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
@@ -33,3 +45,5 @@ RPC_SERVER.register_function(get_one_news, 'getOneNews')
 LOGGER.info("Starting RPC server on %s:%d", SERVER_HOST, SERVER_PORT)
 
 RPC_SERVER.serve_forever()
+
+
