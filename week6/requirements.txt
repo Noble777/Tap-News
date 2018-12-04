@@ -1,5 +1,10 @@
-jsonrpclin-pelix
-pymongo
+jsonrpclib-pelix
+lxml
+numpy
 pika
-requests
+pymongo
+python-dateutil
 redis
+requests
+scipy
+sklearn
