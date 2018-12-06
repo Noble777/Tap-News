@@ -1,7 +1,7 @@
-var config = require('./config/config.json');
-require('./models/main.js').connect(config.mongoDbUri);
+// var config = require('./config/config.json');
+// require('./models/main.js').connect(config.mongoDbUri);
 var auth = require('./routes/auth');
-var authChecker = require('./auth/auth_checker');
+
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var express = require('express');
@@ -15,10 +15,11 @@ var app = express();
 
 app.use(bodyParser.json());
 
-// var config = require('./config/config.json');
+var config = require('./config/config.json');
 
-// require('./models/main.js').connect(config.mongoDbUri);
+require('./models/main.js').connect(config.mongoDbUri);
 
+var authChecker = require('./auth/auth_checker');
 // load passport strategies.
 app.use(passport.initialize());
 passport.use('local-signup', require('./auth/signup_local_strategy'));
