@@ -28,7 +28,7 @@ class NewsPanel extends React.Component {
   loadMoreNews() {
     console.log('Actually triggered loading more news');
 
-    if (this.state.loadedAll == true){
+    if (this.state.loadedAll === true){
       return;
     }
 
@@ -45,7 +45,7 @@ class NewsPanel extends React.Component {
     fetch(request)
       .then(res => res.json())
       .then(news => {
-        if (!news || news.length == 0) {
+        if (!news || news.length === 0) {
           this.setState({loadedAll:true})
         }
         this.setState({

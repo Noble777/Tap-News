@@ -1,5 +1,3 @@
-// var config = require('./config/config.json');
-// require('./models/main.js').connect(config.mongoDbUri);
 var auth = require('./routes/auth');
 
 var bodyParser = require('body-parser');
