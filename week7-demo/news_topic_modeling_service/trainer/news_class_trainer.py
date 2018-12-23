@@ -13,6 +13,9 @@ from nltk.tokenize import word_tokenize
 from os.path import join
 from os.path import normpath
 from sklearn import metrics
+import nltk as nltk
+nltk.download('stopwords')
+nltk.download('punkt')
 
 learn = tf.contrib.learn
 
@@ -43,11 +46,14 @@ def main(unused_argv):
         shutil.rmtree(MODEL_OUTPUT_DIR)
         os.mkdir(MODEL_OUTPUT_DIR)
 
-    # Random shuffle
-    df.sample(frac=1)
+    # # Random shuffle
+    # df.sample(frac=1)
 
     # Prepare training and testing data
     df = pd.read_csv(DATA_SET_FILE, header=None)
+    
+    # Random shuffle
+    df.sample(frac=1)
     train_df = df[0:400]
     test_df = df.drop(train_df.index)
 
